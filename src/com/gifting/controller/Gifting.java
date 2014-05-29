@@ -59,6 +59,9 @@ public class Gifting extends HttpServlet {
 //		out.println("Qty: "+qty+" Amt: "+amt);
 		
 		String key = new String("b05dcd698e5ca2eab4a0cd1eee4117e7db2a10c4");
+		String key1 = new String("12c3302e49b9b40ab8a222d7cf79a69ad11ffd78");
+		String key2 = new String("5b8384087156eb88dce1a1d321c945564f4d858e");
+
 		String url1 = "http://api.zappos.com/Product/7515478?includes=[%22styles%22]&key="+key;
 		
 		URL url = new URL(url1);
@@ -130,7 +133,6 @@ public class Gifting extends HttpServlet {
 		    		array.getJSONObject(i).getString("imageUrl"), 
 		    		Float.parseFloat(array.getJSONObject(i).getString("price")), 
 		    		array.getJSONObject(i).getInt("styleId"));
-			
 					pList.add(p);		
 		}
 		return pList; 
