@@ -3,7 +3,11 @@ ZGifting
 
 Author(s): Abhishek Waichal
 
-Implemented a gifting strategy for an online e-commerce website using their proprietary API. The aim was to provide user with sets of gift products according to the budget and number of items constraints he would provide. After having finalized the sets with closest proximity, images of the products within these sets was to be downloaded and the product-sets were to be sorted based on the proximity. I have implemented this Assignment using Java servlets.
+Implemented a gifting strategy for an online e-commerce website using their proprietary API.
+The aim was to provide user with sets of gift products according to the budget and number of items constraints he would provide.
+After having finalized the sets with closest proximity to given constraints, images associated with these products within the sets were to be downloaded. 
+Lastly, the product-sets were to be sorted based on the proximity. 
+I have implemented this Assignment using Java servlets.
   
 
 LIBRARIES USED:
