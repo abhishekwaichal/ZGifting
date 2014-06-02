@@ -1,5 +1,6 @@
 
 
+
 Author(s): Abhishek Waichal
 e-mail(s): waichal.abhishek@gmail.com
 
@@ -20,21 +21,18 @@ PERCENT COMPLETE:
 PARTS THAT ARE NOT COMPLETE:
 
 [
-  1. Image downloading
-  2. Sorting products
+  1. Sorting products
 ]
 
 LIBRARIES USED:
 [
  JRE8
- json-lib.;
- org.apache.commons.io.IOUtils;
-
+ Google GSON-lib.;
 ]
 
 BIBLIOGRAPHY:
 
 [
-	. JAVA API Documentation (http://docs.oracle.com/javase/7/docs/api/)
+	JAVA API Documentation (http://docs.oracle.com/javase/7/docs/api/)
 	Zappos API 
 ]
