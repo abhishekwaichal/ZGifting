@@ -70,32 +70,28 @@ public class Gifting extends HttpServlet {
         	
 		BufferedReader in = new BufferedReader(is);
 		
-		String inputLine;
+/*		
+ 		String inputLine;
 		while ((inputLine = in.readLine()) != null)
 			out.println(inputLine);
 		in.close();
+*/		
 		
 		List<ProductDetails> pList = null;
 		try {
 			pList = getList(is);
 		} catch (Throwable e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
 		
 		for(int i = 0; i < pList.size() ; i++ )
 			try {
 				saveImage(pList.get(i));
 			} catch (Throwable e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 //			out.println("Saved Image");
-
-		
-		
-	}
+}
 	
 	public void saveImage(ProductDetails p) throws Throwable{
 		
