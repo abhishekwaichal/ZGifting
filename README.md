@@ -1,4 +1,4 @@
-ZapposGifting
+ZGifting
 =============
 
 Author(s): Abhishek Waichal
