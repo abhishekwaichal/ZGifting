@@ -8,29 +8,22 @@ e-mail(s): waichal.abhishek@gmail.com
 PURPOSE:
 
 [
-  Implemented a ifting strategy for an online ecommerce website using their proprietry API.
+  Implemented a gifting strategy for an online ecommerce website using their proprietry API.
   The aim was to provide user with sets of gift products according to the budget and number of 
   items constraints he would provide.
+  After having finalized the sets with closest approximity, images of the products wihtin these sets 
+  was to be downloaded and the product-sets were to be sorted based on the approximity.
   I have implemented this Assignment using Java servlets.
   
-]
-
-PERCENT COMPLETE:
-
-[
- I believe, we have completed 70% of this Assignment.
-]
-
-PARTS THAT ARE NOT COMPLETE:
-
-[
-  1. Sorting products
 ]
 
 LIBRARIES USED:
 [
  JRE8
- Google GSON-lib.;
+ Google GSON-lib
+ Apache commons-IO.jar
+ 
+ 
 ]
 
 BIBLIOGRAPHY:
