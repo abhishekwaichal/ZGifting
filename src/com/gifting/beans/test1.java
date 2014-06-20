@@ -17,7 +17,7 @@ public class test1 {
 	 */
 	public static void main(String[] args) {
 
-		test t = new test();
+		ListOps t = new ListOps();
 		List<ProductDetails> pList = t.getList();
 		List<ProductDetails[]> resultList = new ArrayList<ProductDetails[]>();
 

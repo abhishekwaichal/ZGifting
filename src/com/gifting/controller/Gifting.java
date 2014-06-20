@@ -21,13 +21,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.gifting.beans.ListOps;
 import com.gifting.beans.ProductDetails;
+import com.google.gson.JsonDeserializer;
 
 /**
  * Servlet implementation class Gifting
  */
 @WebServlet("/Gifting")
-public class Gifting extends HttpServlet {
+public class Gifting extends HttpServlet{
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -67,9 +69,11 @@ public class Gifting extends HttpServlet {
 		
 		URL url = new URL(url1);
         URLConnection yc = url.openConnection();
-        InputStreamReader is= new InputStreamReader(yc.getInputStream());
+        InputStreamReader is = new InputStreamReader(yc.getInputStream());
         	
 		BufferedReader in = new BufferedReader(is);
+		
+		
 		
 /*		
  		String inputLine;
@@ -80,7 +84,8 @@ public class Gifting extends HttpServlet {
 		
 		List<ProductDetails> pList = null;
 		try {
-			pList = getList(is);
+			ListOps t = new ListOps(in);
+			t.getList();
 		} catch (Throwable e1) {
 			e1.printStackTrace();
 		}
@@ -114,24 +119,4 @@ public class Gifting extends HttpServlet {
 		
 	} 
 	
-	public List<ProductDetails> getList(InputStreamReader is) throws Throwable{
-		
-		List<ProductDetails> pList = new ArrayList<ProductDetails>();
-
-//		String productObject;
-		JSONObject obj = new JSONObject(is);
-		JSONArray array = obj.getJSONArray("product");
-		for(int i = 0 ; i < array.length() ; i++){
-
-		    ProductDetails p = new ProductDetails(array.getJSONObject(i).getString("productUrl"),
-		    		array.getJSONObject(i).getString("color"), 
-		    		Float.parseFloat(array.getJSONObject(i).getString("originalPrice")), 
-		    		array.getJSONObject(i).getInt("percentOff"), 
-		    		array.getJSONObject(i).getString("imageUrl"), 
-		    		Float.parseFloat(array.getJSONObject(i).getString("price")), 
-		    		array.getJSONObject(i).getInt("styleId"));
-					pList.add(p);		
-		}
-		return pList; 
-	}
 }
