@@ -29,6 +29,10 @@ public class ListOps implements JsonDeserializer<ProductDetails> {
 	
 	}
 	
+	public ListOps() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public List<ProductDetails> getList() {
 		
 		
@@ -54,7 +58,7 @@ public class ListOps implements JsonDeserializer<ProductDetails> {
 			ProductDetails obj = deserialize(json2, typeOfT, context);
 			pList.add(obj);
 			
-			System.out.println(obj);
+//			System.out.println(obj);
 			
 			}
 	 
@@ -96,6 +100,8 @@ public class ListOps implements JsonDeserializer<ProductDetails> {
         return obj;
 		
 	}
+	
+	
 	
 	
 }

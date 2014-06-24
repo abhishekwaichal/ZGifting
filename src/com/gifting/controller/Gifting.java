@@ -9,21 +9,14 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import com.gifting.beans.ListOps;
 import com.gifting.beans.ProductDetails;
-import com.google.gson.JsonDeserializer;
 
 /**
  * Servlet implementation class Gifting
@@ -31,13 +24,18 @@ import com.google.gson.JsonDeserializer;
 @WebServlet("/Gifting")
 public class Gifting extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-       
+	Integer numb ;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
     public Gifting() {
         super();
-        // TODO Auto-generated constructor stub
+        
+    }
+    public Gifting(Integer numbIn) {
+        numb = numbIn;
+        
     }
 
 	/**
@@ -53,7 +51,7 @@ public class Gifting extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		PrintWriter out= response.getWriter();
+		PrintWriter out = response.getWriter();
 
 		String qty = request.getParameter("qty");
 		String amt = request.getParameter("amt");
@@ -73,10 +71,14 @@ public class Gifting extends HttpServlet{
         	
 		BufferedReader in = new BufferedReader(is);
 		
-		
-		
-/*		
- 		String inputLine;
+/*
+ 		String temp = in.readLine();
+		temp.indexOf("\"styles\":");
+		out.println(temp);		
+		System.exit(0);
+*/		
+ /*		
+   		String inputLine;
 		while ((inputLine = in.readLine()) != null)
 			out.println(inputLine);
 		in.close();
@@ -85,29 +87,37 @@ public class Gifting extends HttpServlet{
 		List<ProductDetails> pList = null;
 		try {
 			ListOps t = new ListOps(in);
-			t.getList();
+			pList = t.getList();
 		} catch (Throwable e1) {
 			e1.printStackTrace();
 		}
 		
-		for(int i = 0; i < pList.size() ; i++ )
+
+		for(ProductDetails temp: pList)
+			out.println(temp.toString());
+			
+		
+/*		for(int i = 0; i < pList.size() ; i++ )
 			try {
 				saveImage(pList.get(i));
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
+*/
 //			out.println("Saved Image");
+		
 }
 	
 	public void saveImage(ProductDetails p) throws Throwable{
 		
-//		System.out.println("opening connection");
+		
+		//		opening connection
 		String imgUrl =  p.getImageUrl();
 		URL url = new URL(imgUrl);
 		InputStream in = url.openStream();
 		FileOutputStream fos = new FileOutputStream(new File(p.getProductUrl()+".jpg"));
 
-//		System.out.println("reading file...");
+		//		reading file...
 		int length = -1;
 		byte[] buffer = new byte[1024];
 		while ((length = in.read(buffer)) > -1) {
@@ -115,8 +125,16 @@ public class Gifting extends HttpServlet{
 		}
 		fos.close();
 		in.close();
-//		System.out.println("file was downloaded");
+		//		"file was downloaded"
 		
 	} 
+	
+	 	
+	public Integer is5(){
+		
+		return numb;
+		
+	}
+	
 	
 }
